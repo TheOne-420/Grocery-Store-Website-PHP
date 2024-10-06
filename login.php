@@ -11,50 +11,76 @@
         <form  method="post">
             <h2 id="title">LOGIN</h2>
             <label for="username">Username:</label>
-            
-            <input type="text" name="username" id="username" placeholder="Enter your username" class="details-input">
+            <br>
+            <input type="text" name="username" id="username" placeholder="Enter your username" class="details-input" require>
             <br>
             <label for="password">Password:</label>
-            
-            <input type="password" name="password" id="password"  placeholder="Enter your password" class="details-input">
             <br>
-        <input type="submit"  name="submit"  value="SUBMIT" id="submit-btn"> 
-        <p id="exists">
-            Already a user? 
-            <a href="#">Click here!</a>
-        </p>
+            <input type="password" name="password" id="password"  placeholder="Enter your password" class="details-input" >
+            <span id="password-error" class="error-message"></span>
+            <br>
+        <input type="submit"  name="submit"  value="LOGIN" id="submit-btn"> 
+        
         <p id='message' name='msg'></p>
-        </form>    
+        </form onsubmit="(e)=> e.preventDefault()">    
         
     </div>
+<!--     
+    <script>
+        // validating the password
+        function validate(password) 
+        {
+           msg =document.getElementById("password-error");
+            
+           if(password.value.length < 8)
+           {
+            msg.innerHTML = "Password length should be atleast 8 characters";
+           }
+        }
+    </script> -->
 </body>
 </html>
 
 <?php
+
+
     // checking if form is submitted or not
     if (isset($_POST['submit'])) 
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $un = $_POST['username'];
+        $pass = (int)$_POST['password'];
 
-        if (($username=='' || $password=='')) 
+        //  if the username and password fields are not empty
+        if (!empty($un) && !empty($pass))
         {
-        
-            $msg="Please enter a username";
-          
+            
+            // connecting to the database
+            require "./connection.php";       
+
+            // checking if user exists in the database
+            $query = "SELECT * FROM users WHERE username='$un' AND password='$pass'";
+            $result = $con->query($query);
+
+            
+            if (  $result->num_rows > 0) 
+            {
+                // if the user exists, redirect to the home page
+                header("Location: index.html");
+            } 
+            else 
+            {
+                // if the entered username and password are incorrect, display an error message
+                
+                echo "<script>document.getElementById('message').innerHTML='User doesn't exists'</script>";
+            }
+            
+            
         }
         else
         {
-            $server = 'localhost';
-            $username = 'root';
-            $password = '';
-            $database = 'store';
-            $con = mysql_connect($server,$username, $password,$database);
-
-            if (!$con) 
-            {
-                die('Could not connect: '. mysql_error());
-            }
+            // if the username or password fields are empty, display an error message
+            echo "<script>document.getElementById('message').innerHTML='Please fill all fields'</script>";
         }
+       
     }
 ?>

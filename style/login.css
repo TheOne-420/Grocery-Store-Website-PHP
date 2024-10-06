@@ -11,7 +11,8 @@ body
 {
     
     border: 2px seagreen solid;
-    border-radius: 5px;
+    border-radius: 10px;
+    outline: #8FD14F 3px solid ;
     padding: 50px;
     margin:  0% auto;
     width: 50vw;
@@ -33,12 +34,11 @@ form
     margin:  0% auto;
     width: 60%;
 }
-
-
 label
 {
-    display: inline-block;
+    
     font-weight: bold;
+    margin-right: 100px;
     width: 100px;
     height: 10px;
 }
@@ -64,7 +64,12 @@ label
     width: 65%;
     box-shadow: 5px -2px 2px #8FD14F;
 }
-#exists a
+.error-message, #message
 {
-    color: #00CCDD
+    
+    color: red;
+    font-style: italic;
+    font-size: smaller;
+    font-family: Arial;
+    text-align: center;
 }

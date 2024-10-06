@@ -1,0 +1,22 @@
+:root
+{
+    --primary-color : black;
+}
+#main
+{
+    width: 80vw;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,100px);
+    gap: 10px;
+    padding: 80px;
+}
+.cards
+{
+    background-color: var(--primary-color);
+    color: white;
+  
+    border: 3px solid black;
+    border-radius: 4px;
+}
