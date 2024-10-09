@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  
+    <title>Login page</title>
     <link rel="stylesheet" href="./style/dashboard.css">
+    <link rel="stylesheet" href="./style/navbar.css">
+
 </head>
-<body>
+<body> 
+   <header>
+       <span>LOGO</span>
+       <nav id="navBar">
+            <a href="./home.html"  class="links">Home</a>
+            <a href="./shop.html" class="links">Shop</a>
+            <a href="./contact.html" class="links">Contact</a>
+            <a href="./about.html" class="links">About</a>
+        </nav>
+    </header>
+    
     <section id="main">
+        
         <div class="cards">
             <h4>No of products</h4>
             <?php include "./countProducts.php"?>
@@ -26,5 +38,8 @@
         <!-- <div class="cards"></div>
         <div class="cards"></div> -->
     </section>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aspernatur culpa voluptate esse explicabo magnam minus sapiente, expedita unde autem, quo consequuntur totam aut. Repellendus mollitia earum porro at expedita.</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aspernatur culpa voluptate esse explicabo magnam minus sapiente, expedita unde autem, quo consequuntur totam aut. Repellendus mollitia earum porro at expedita.</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aspernatur culpa voluptate esse explicabo magnam minus sapiente, expedita unde autem, quo consequuntur totam aut. Repellendus mollitia earum porro at expedita.</h1>
 </body>
 </html>
