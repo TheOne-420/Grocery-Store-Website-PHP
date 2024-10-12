@@ -1,21 +1,62 @@
 :root
 {
-    --primary-color : black;
+    --primary-color : #ffff00;
+    --secondary-color : lime;
+    --accent-color :  #ff007f;
+}
+/* Animations */
+@keyframes identifier {
+    
+}
+
+body
+{
+    background-color: var(--primary-color);
+}
+section
+{
+    overflow: hidden;
+    
+    height: 100vh;
 }
 #main
 {
-    width: 80vw;
-    height: 40vh;
+   
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,.4fr);
     grid-template-rows: repeat(2,100px);
     gap: 10px;
     padding: 80px;
 }
+
 .cards
 {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--secondary-color);
+    color: cyan;
     border: 3px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
+}
+.cards:hover, .links:hover
+{
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform:scaleX(1.04);
+    transition:  all 1s ease ;
+    
+    
+}
+.links
+{
+    text-decoration: none;
+    color: cyan;
+}
+
+
+
+#product-container
+{
+
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    
 }

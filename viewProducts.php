@@ -45,11 +45,10 @@
     $pname = $row['ProductName'];
      echo "<li class='products'>".
             // "<img src='./images/" . $row['Image'] . "' class=images >".
-            "<p>ID " . $row['ProductID'] . " </p>
-            <h4>" . $row['ProductName'] . "</h4>
-            <p>₹" . $row['Price'] . " </p>
+            "<p>ID " . $row['ProductID'] . 
+            "</p> <h4>" . $row['ProductName'] . 
+            "</h4> <p>₹" . $row['Price'] . " </p>  <a href='./product.php?id=" . $row['ProductID'] . "'>View Details</a>
             
-            <a href='./product.php?id=" . $row['ProductID'] . "'>View Details</a>
           </li>";
  }
 echo "</ul>";

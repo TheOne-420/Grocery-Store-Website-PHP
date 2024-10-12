@@ -8,36 +8,45 @@
 </head>
 <body>
     <div class="main">
-        <form  method="post">
+        <form  method="post" autocomplete="off" id="registration">
             <h2 id="title">LOGIN</h2>
             <label for="username">Username:</label>
             <br>
             <input type="text" name="username" id="username" placeholder="Enter your username" class="details-input" require>
-            <br>
+            <br><br>
             <label for="password">Password:</label>
             <br>
             <input type="password" name="password" id="password"  placeholder="Enter your password" class="details-input" >
-            <span id="password-error" class="error-message"></span>
+            <br>
             <br>
         <input type="submit"  name="submit"  value="LOGIN" id="submit-btn"> 
         
-        <p id='message' name='msg'></p>
-        </form onsubmit="(e)=> e.preventDefault()">    
+        <p id='message' name='message'></p>
+        </form >    
         
     </div>
-<!--     
+    
     <script>
-        // validating the password
-        function validate(password) 
+        window.onload = function() 
         {
-           msg =document.getElementById("password-error");
+            document.getElementById("registration").reset();
+            document.getElementById('username').focus();
             
-           if(password.value.length < 8)
-           {
-            msg.innerHTML = "Password length should be atleast 8 characters";
-           }
+            
+
         }
-    </script> -->
+        submitForm =document.getElementById('registration');
+        submitForm.addEventListener('submit', ()=>
+        {
+            
+        if (document.getElementById('username').value=='' || document.getElementById('password').value==false) 
+            {
+                
+                alert('Please enter both username and password first');
+            }
+        }
+    );
+    </script>
 </body>
 </html>
 
@@ -65,22 +74,14 @@
             if (  $result->num_rows > 0) 
             {
                 // if the user exists, redirect to the home page
-                header("Location: index.html");
-            } 
-            else 
-            {
-                // if the entered username and password are incorrect, display an error message
                 
-                echo "<script>document.getElementById('message').innerHTML='User doesn't exists'</script>";
-            }
+                header("Location: index.php");
+            } 
+          
             
             
         }
-        else
-        {
-            // if the username or password fields are empty, display an error message
-            echo "<script>document.getElementById('message').innerHTML='Please fill all fields'</script>";
-        }
+        
        
     }
 ?>

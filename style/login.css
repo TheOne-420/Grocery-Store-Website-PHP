@@ -1,18 +1,22 @@
 :root
 {
-    --primary-color: #2E073F;
-    --font-color: #8FD14F;
+    --primary-color: #1434A4;
+    --font-color: #F3E5AB;
 }
 body
 {
     padding: 100px;
+    background-color: #102C57;
 }
 .main
 {
     
-    border: 2px seagreen solid;
+    border-left: 2px  seagreen solid;
+    border-bottom: 2px  seagreen solid;
+    border-top: 0px  seagreen solid;
+    border-right: 0px  seagreen solid;
     border-radius: 10px;
-    outline: #8FD14F 3px solid ;
+    
     padding: 50px;
     margin:  0% auto;
     width: 50vw;
@@ -26,6 +30,15 @@ form
     width: 60%;
     text-align: center;
 }
+input:focus
+{
+    transform: scaleX(1.04) translateY(5px);
+    transition: transform .4s ease;
+    border: green 3px solid;
+    border-radius: 5px;
+    outline: none;
+}
+
 #title
 {
     
@@ -50,26 +63,16 @@ label
     border-radius: 5px;
     padding: 5px;
     margin: 5px 0%;
-    width: 55%;
-    box-shadow: -5px 3px 2px #8FD14F;
+    width: 40%;
+    /* box-shadow: -5px 3px 2px #8FD14F; */
 }
 #submit-btn:hover
 {
     background-color: #102C57;
     color: #00CCDD;
-    border: 2px #EE66A6 solid;
+    border: 2px #0099ff58 solid;
     border-radius: 5px;
-    padding: 5px;
-    margin: 4% 0%;
-    width: 65%;
-    box-shadow: 5px -2px 2px #8FD14F;
-}
-.error-message, #message
-{
-    
-    color: red;
-    font-style: italic;
-    font-size: smaller;
-    font-family: Arial;
-    text-align: center;
+    transform: scaleX(1.09) translateY(-5px);
+    transition: transform .4s ease;
+    /* box-shadow: 5px -2px 2px #8FD14F; */
 }
