@@ -63,9 +63,16 @@ section
 .records
 {
     border: white 2px solid;
+    border-radius: 4px;
     margin: 10px;
     width: 50%;
     height: 100%;
+
+}
+.records:hover
+{
+    transform: scaleX(1.2);
+
 }
 .products-container
 {
