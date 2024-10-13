@@ -1,7 +1,7 @@
 <?php
  require_once("connection.php");
 
- $query = "SELECT * FROM Products order by ProductID"; 
+ $query = "SELECT * FROM Products order by ProductID limit 15"; 
  $result = mysqli_query($con,$query);
 
  echo "<div class='products-container'>";
@@ -11,7 +11,7 @@
         // Display the records in a formatted manner.
         echo "<div class='records'>";  
             echo "<a href='product.php?id=".$row['ProductID']."'><span>".$row['ProductName']."</span></a>";   
-            echo "<img src='./Images/".$row['Image']."' width='50' height='50' class='imgs'>";
+            echo "<img src='./Images/".$row['Image']."'  class='imgs'>";
             
             echo "<br>";
             echo $row['ProductName'];
