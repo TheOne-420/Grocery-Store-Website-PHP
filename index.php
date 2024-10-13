@@ -8,17 +8,7 @@
 
 </head>
 <body> 
-   <header>
-       
-        <img src="./images/logo.jpeg" alt="" id="logo">
-        
-       <nav id="navBar">
-            <a href="./home.html"  class="links">Home</a>
-            <a href="./shop.html" class="links">Shop</a>
-            <a href="./contact.html" class="links">Contact</a>
-            <a href="./about.html" class="links">About</a>
-        </nav>
-    </header>
+   <?php include "./navbar.html"; ?>
     
     <section id="main">
         
@@ -42,7 +32,12 @@
 
     <section id="product-container">
         <h2>Product List</h2>
-        
+       
+        <?php
+         //Display the product list
+         include "./displayProducts.php";
+         
+        ?>
     </section>
 </body>
 </html>

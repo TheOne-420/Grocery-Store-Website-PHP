@@ -8,15 +8,7 @@
  <script defer src="./js/activePage.js"></script>
 </head>
 <body> 
-   <header>
-       <span>LOGO</span>
-       <nav id="navBar">
-            <a href="./home.html"  class="links">Home</a>
-            <a href="./shop.html" class="links">Shop</a>
-            <a href="./contact.html" class="links">Contact</a>
-            <a href="./about.html" class="links">About</a>
-        </nav>
-    </header>
+    <?php include "./navbar.html" ?>
     <section id="main">
         <h1>Welcome to our website!</h1>
         <p>This is the home page.</p>

@@ -23,7 +23,12 @@
         color : olive ;
         font-style: italic;
     }
-    
+    .products-container
+    {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
    
     
   </style>
@@ -37,18 +42,21 @@
  include "./connection.php";
  $query = "SELECT * FROM Products";
  $result = $con->query($query);
- 
-
- echo "<ul>";
+ echo "<div class='products-container'>";
  while ($row = $result->fetch_assoc()) 
  {
-    $pname = $row['ProductName'];
-     echo "<li class='products'>".
-            // "<img src='./images/" . $row['Image'] . "' class=images >".
-            "<p>ID " . $row['ProductID'] . 
-            "</p> <h4>" . $row['ProductName'] . 
-            "</h4> <p>₹" . $row['Price'] . " </p>  <a href='./product.php?id=" . $row['ProductID'] . "'>View Details</a>
-            
-          </li>";
- }
-echo "</ul>";
+   
+     
+     echo "<a href='product.php?id=".$row['ProductID']."'><span>".$row['ProductName']."</span></a>";   
+     echo "<img src='./Images/".$row['Image']."' width='50' height='50' class='imgs'>";
+     
+     echo "<br>";
+     echo $row['ProductName'];
+     echo "<br>";
+     echo $row['Price'];
+     echo "<br>";
+     echo "<p>₹" . $row['Price'] . " </p>  <a href='./product.php?id=" . $row['ProductID'] . "'>View Details</a>";
+  
+ }    
+
+ echo "</div>";
