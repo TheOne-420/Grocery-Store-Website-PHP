@@ -1,28 +1,27 @@
 :root
 {
     --primary-color : #fff400;
-    --secondary-color : lime;
+    --secondary-color : blue;
     --accent-color :  #ff008a;
 }
 /* Animations */
 @keyframes borderAnimation 
 {
-    0%{ border-top: var(--secondary-color) 3px solid;}
-    10%{ border-top:   var(--secondary-color) 3px solid;}
+    0%{ border:none; border-top: var(--secondary-color) 3px solid;}
+    10%{ border-right:   var(--secondary-color) 3px solid;}
     30%{ border-right:  var(--secondary-color) 3px solid;}
     50%{ border-bottom: var(--secondary-color) 3px solid;}
     75%{ border-left:  var(--secondary-color) 3px solid;}
     100%{ border-top: var(--secondary-color) 3px solid;}
 }
-
+ 
 body
 {
     background-color: var(--primary-color);
 }
 section
 {
-    
-    
+  
     height: 100vh;
 }
 #main
@@ -59,41 +58,49 @@ section
 
 
 
-#product-container
+#product-section
 {
 
     background-color: var(--accent-color);
     color: var(--primary-color);
     
 }
+.products-container
+{
+    display: grid;
+    grid-template-columns: repeat(5,1.5fr);
+    grid-template-rows: 1/ 2;
+    gap:15px;
+}
+
 .records
 {
-   
+    
     border-radius: 4px;
     margin: 10px;
-    width: 50%;
-    height: 100%;
+    
 
 }
 .records:hover
 {
-    transform: scaleX(1.05);
+    
     background-color: var(--primary-color);
     color: var(--accent-color);
-    animation: borderAnimation 2s infinite linear;
+    animation: borderAnimation 1.5s infinite linear;
 
 }
-.products-container
+
+
+.img-container
 {
-    
-    display: grid;
-    grid-template-columns: repeat(5,.28fr);
-    grid-template-rows: repeat(2,150px);
-    gap: 10px;
-    
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
 }
 .imgs
 {
-    width: 40%;
-    height:  30%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }

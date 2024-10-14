@@ -8,7 +8,7 @@
 
 </head>
 <body> 
-   <?php include "./navbar.html"; ?>
+   <?php include "./navbar.php"; ?>
     
     <section id="main">
         
@@ -30,7 +30,7 @@
         <div class="cards"></div> -->
     </section>
 
-    <section id="product-container">
+    <section id="product-section">
         <h2>Product List</h2>
        
         <?php

@@ -7,7 +7,7 @@
     <script defer src="./js/activePage.js"></script>
 </head>
 <body> 
-    <?php include "./navbar.html" ?>
+<?php include "./navbar.php" ?>
     <h3>WELCOME!</h3>
     <p>This is the shop page.</p>
 </body>

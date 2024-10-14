@@ -8,7 +8,7 @@
  <script defer src="./js/activePage.js"></script>
 </head>
 <body> 
-    <?php include "./navbar.html" ?>
+    <?php include "./navbar.php" ?>
     <section id="main">
         <h1>Welcome to our website!</h1>
         <p>This is the home page.</p>
