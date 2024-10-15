@@ -9,22 +9,21 @@
 }
 body
 {
-    padding: 100px;
+    padding: 0;
     background-color: #102C57;
 }
 .main
 {
     
-    border-left: 2px  seagreen solid;
-    border-bottom: 2px  seagreen solid;
-    border-top: 0px  seagreen solid;
-    border-right: 0px  seagreen solid;
+    border-left: 2px  #29ef94 solid;
+    border-bottom: 2px  #29ef94 solid;
+    
     border-radius: 10px;
     
     padding: 50px;
-    margin:  0% auto;
+    margin:  10% auto;
     width: 50vw;
-    height: 40vh;
+    
     background-color: var(--primary-color);
     color: var(--font-color);
 }
@@ -79,4 +78,10 @@ label
     transform: scaleX(1.09) translateY(-5px);
     transition: all .6s ease;
     /* box-shadow: 5px -2px 2px #8FD14F; */
+}
+
+#sign-in a
+{
+    color:#37ff00;
+    font-weight: bolder;
 }

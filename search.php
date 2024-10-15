@@ -9,6 +9,7 @@ $searchTerm = $_POST['search'];
 
 $query = "SELECT * FROM products WHERE ProductName like '%$searchTerm%'";
 $result= mysqli_query($con, $query);
+echo "<h1>Search results</h1>";
 echo"<ul>";
 while($row=mysqli_fetch_array($result))
 {
@@ -26,10 +27,10 @@ while($row=mysqli_fetch_array($result))
         echo " <a id='img-link' href='product.php?id=".$row["ProductID"]."'>".
          "<img src='./Images/". $row["Image"].
         "'></a>";
-       echo 
-        "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]
-        ."'>". "<i class='fa-solid fa-cart-shopping'></i>"
-       ."</a> "
+    //    echo 
+    //     "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]
+    //     ."'>". "<i class='fa-solid fa-cart-shopping'></i>"
+    //    ."</a> "
        ;
          
 
@@ -52,7 +53,10 @@ echo"</ul>";
             --accent-color: #f43f70;
             
         }
-        
+        body
+        {
+            text-align: center;
+        }
        ul
        {
             display: grid;

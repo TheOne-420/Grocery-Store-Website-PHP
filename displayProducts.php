@@ -1,7 +1,7 @@
 <?php
  require_once "connection.php";
 
- $query = "SELECT * FROM Products order by ProductID limit 15"; 
+ $query = "SELECT * FROM Products ORDER BY ProductName "; 
  $result = mysqli_query($con,$query);
 
  echo "<div class='products-container'>";
@@ -17,12 +17,14 @@
             echo "<br>";
             echo $row['ProductName'];
             echo "<br>";
-            echo $row['Price'];
-            
-            echo 
-            "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]
-            ."'>". "<i class='fa-solid fa-cart-shopping'></i>"
-           ."</a> ";
+            echo "₹".$row['Price'];
+            echo "<br>";
+            echo "<button id='addToCart'>ADD TO CART</button>";
+            ///       CART ICON
+            //     echo 
+        //     "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]
+        //     ."'>". "<i class='fa-solid fa-cart-shopping'></i>"
+        //    ."</a> ";
             // echo $row['Quantity'];
             // echo "<br>";
             // echo "<a href='editproduct.php?id=".$row['ProductID']."'>Edit</a> | <a href='delete.php?id=".$row['ProductID']."'>Delete</a>";

@@ -26,19 +26,33 @@ header span
     height: 32px;
     border-radius: 5px;
 }
+#logout
+{
 
+    /* display: ; */
+    padding: 5px;
+    border-radius: 4px;
+    position: fixed;
+    top:30px;
+    left:430px;
+    border:none ;
+}
 #search:focus
 {
    border: 2px solid cornflowerblue;
    border-radius: 5px;
-   transform: scaleX(1.05) translateY(-5px);
+   transform: scaleX(1.05) translateY(1px);
     background-color: rgba(255, 255, 255, 0.578);
     transition: all 0.6s ease;
     
 }
+#search::placeholder
+{
+    text-align: center;
+}
 #search
 {
-    width: 100%;
+    width: 400px;
     padding: 5px;
     border-radius: 5px;
     border: none;
@@ -47,9 +61,7 @@ header span
 #navBar 
 {
     
-    
     margin: 0;
-    
     max-width: 450px;
 
 }
@@ -67,13 +79,13 @@ header span
     color: whitesmoke;
     border-radius: 10px;
     background-color: rgb(229, 9, 108);
-    
     transition: all 0.8s ease;
 }
 
 #navBar .active
 {
     color: red;
+    text-decoration: underline;
     border-radius: 10px;
     
 }
