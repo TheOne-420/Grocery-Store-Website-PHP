@@ -80,7 +80,7 @@
             color: #f43f70;
             border: 2px #0099ff58 solid;
             border-radius: 5px;
-            transform: scaleX(1.09) translateY(-5px) translateX(30%);
+            transform: scaleX(1.09) translate(30%,-5px);
             transition: all .6s ease;
             /* box-shadow: 5px -2px 2px #8FD14F; */
         }
@@ -103,5 +103,7 @@
          
         ?>
     </section>
+    
 </body>
 </html>
+

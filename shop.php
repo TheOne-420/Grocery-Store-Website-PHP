@@ -12,6 +12,73 @@
             --accent-color:#FFFBE6;
             --font-color: #D91656;
         }
+        #dropdown
+        {
+            text-align: center;
+            width: 100px;
+        }
+        .dropbtn
+        {
+            margin:10px;
+            width: inherit;
+            background-color: var(--font-color);
+            color: #FFD700;;
+            border:none;
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        .dropbtn div
+        {   
+
+            display: inline;
+            padding: 3px;
+            
+        }
+        .dropbtn div i
+        {
+            display: inline;
+            padding: 3px;
+            padding-top: 10px;
+            
+        }
+        #down-arrow
+        {
+            
+            display: none;
+        }
+        .dropdown-content 
+        {
+            display: none;
+            position: absolute;
+            margin-left: 10px;
+            width: 115px;
+            border-radius: 15px;
+            background-color: var(--font-color);
+            
+        }
+        .dropdown-content a
+        {
+            width: 100%;
+            display: block;
+            text-decoration: none;
+            color: #FFD700;
+            padding: 12px 16px;
+            text-align: left;
+            background-color: transparent;
+            font-size: 17px;
+        }
+        #dropdown:hover .dropdown-content, #down-arrow
+        {
+            display:block;
+        }
+        li:hover #category
+        {
+            display: block;
+            position: absolute;
+            background-color: #FFFBE6;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        }
         #hero 
         {
             height: 500px;
@@ -85,9 +152,9 @@
             background-color:  #f9f9fb;
             color: #f43f70;
             border: 2px #0099ff58 solid; 
-            transform: scaleX(1.09) translateY(-5px) translateX(50%);
+            transform: scaleX(1.09) translate(30%,-5px);
             transition: all .6s ease;
-            /* box-shadow: 5px -2px 2px #8FD14F; */
+                        /* box-shadow: 5px -2px 2px #8FD14F; */
         }
         #addToCart a
         { 
@@ -103,16 +170,23 @@
 </head>
 <body> 
 <?php include "./navbar.php" ?>
-<ul id="category">
-    <li><a href="#category">Vegetables</a></li>
-    <li><a href="#category">Fruits</a></li>
-    <li><a href="#category">Diary</a></li>
-    <li><a href="#category">Diary</a></li>
-    <li><a href="#category">More Categories</a></li>
-    <li><a href="#category">Sale</a></li>
-    <li><a href="#category">New Arrivals</a></li>
+<div id="dropdown">
+    
+         <button class="dropbtn" >Categories <div id="arrow-contianer">
+            <i id="right-arrow" class="fa-solid fa-caret-right"></i>
+            <!-- <i id="down-arrow" class="fa-solid fa-caret-down" ></i> -->
+         </div>
+        </button>
+         
+    
    
-</ul>
+    <div class="dropdown-content" id="lists">
+        <a href="#">Vegetables</a>
+        <a href="#">Fruits</a>
+        <a href="#">Diary</a>
+    </div> 
+</div>
+
 <section id="hero">
   
     <h1>Welcome to our shop!</h1>
@@ -120,5 +194,26 @@
     <!-- Add products here -->
     <?php include "displayProducts.php" ?>
 </section>
+<script>
+        function toggleDown() 
+        {
+            let rightArrow =document.getElementById("right-arrow");
+            let downArrow =document.getElementById("down-arrow");
+            rightArrow.style.display = "none";
+            downArrow.style.display = "block";
+        }
+        function toggleRight() 
+        {
+            let rightArrow =document.getElementById("right-arrow");
+            let downArrow =document.getElementById("down-arrow");
+            
+            downArrow.style.display = "none";
+        }
+        
+            
+            
+            
+        
+    </script>
 </body>
 </html>

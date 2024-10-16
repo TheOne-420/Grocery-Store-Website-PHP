@@ -17,7 +17,7 @@
             <?php include "./countProducts.php"?>
         </div>
         <div class="cards">
-            <h4>No of registered users</h4>
+            <h4>No users</h4>
         <?php include "./countUser.php"?>
         </div>
         <div class="cards">
