@@ -1,39 +1,70 @@
 <?php
 require_once "./connection.php";
-//Display individual record
 
-$id = $_GET['id'];
+include 'navBar.php';
 
-$query = "SELECT * FROM Products WHERE ProductID=$id";
+
+$query = "
+    SELECT 
+        cart.Quantity,
+        products.ProductID,
+        products.ProductName,
+        products.Price,
+        products.Image,
+        cart.Quantity * products.Price AS TotalPrice
+    FROM  cart
+    INNER JOIN products ON cart.ProductID = products.ProductID
+    
+        ";
 
 $result = mysqli_query($con,$query);
 if(mysqli_num_rows($result) == 0)
 {
     echo "<script>
-    alert('No product of this id exists,Redirecting to main page.');    
+        alert('Cart,Redirecting to shop page.');    
 
-    window.location.href='/Store/index.php';
+        window.location.href='/Store/shop.php';
     </script>";
     
 
 }
-$row = mysqli_fetch_array($result);
-if ($row)
-{
-   
+
+ echo "<h2>Cart items</h2>";
+ $totalAmount = 0;
+while($row = mysqli_fetch_array($result))
+ {
+    
+    $pid = $row["ProductID"];
     $pname = $row["ProductName"];
-    $price = $row["Price"];
+    $price = $row["TotalPrice"];
+    $unit_price = $row["Price"];
     $quantity = $row["Quantity"];
     
     
-    echo "<h2>Product Details</h2>";
+    
+    //Get to total amount
+    $totalAmount += $price;
+    
+    
+   
     echo "<table>";
-    echo "<tr><td>Product ID: ".  $id . "</td></tr>";
-    echo "<tr><td>Product Name: ". $pname. "</td></tr>";
-    echo "<tr><td>Product Price: ". $price. "</td></tr>";
-    echo "<tr><td>"."<img src='./Images/". $row["Image"]."'</td></tr>";
+    
+        echo "<tr><td>Product Name: ". $pname. "</td></tr>";
+        echo "<tr><td>"."<img src='./Images/". $row["Image"]."'</td></tr><br>"; 
+        echo "<tr><td>Quantity: ". $quantity. "</td></tr>";
+        echo "<tr><td>Unit Price: ". $unit_price. "</td></tr>";
+        echo "<tr><td>Total Price: ". $price. "</td></tr>";
+        
+
+        
     echo "</table>";
+    
+    echo "<form method='post' action='removeFromCart.php?id=$pid'>";
+    echo "<input type='hidden' name='productID' value='$pid'>";
+    echo "<input type='submit' value='REMOVE'>";
+    echo "</form>";
 }
+echo "<p>Amt: ". $totalAmount. "</p>";
 ?>
 
 <!DOCTYPE html>
@@ -50,73 +81,26 @@ if ($row)
         }
         img
         {
-            width: 30%;
-            height: 20%;
-        }
-        label
-        {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="number"]
-        {
-            
-            padding: 5px;
-            border-radius: 5px;
-            border: 2px solid #ccc;
-        }
-        input[type="submit"]
-        {
-            background-color: var(--accent-color);
-            color: var(--light-color);
-            border: 2px #EE66A6 solid;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 5px 0%;
-        }      
-        #submit-btn:hover
-        {  
-            background-color: var(--light-color);
-            color: var(--accent-color);
-            border: 2px #0099ff58 solid;
-            border-radius: 5px;
-            transform: scaleX(1.09) translateY(-5px);
-            transition: all .6s ease;            
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
 <body>
-    <h1>
+    
+    <!-- <h1>
         ADD TO CART
     </h1>
     <form  method="post">
         <label for="Quantity">Quantity</label>
         <input type="number" name="quantity" >
         <input type="submit" value="ADD" id="submit-btn" name="submit">
-    </form>
+    </form> -->
 </body>
 </html>
 
 <?php
-    if (isset($_POST['submit']))
-    {
-        $quant = $_POST['quantity'];
-
-        $cquery = "INSERT INTO CART VALUES($id,$quant)";
-         echo $cquery;
-        $cresult = mysqli_query($con,$cquery);
-
-        if ($cresult)
-        {
-            echo "Product added to cart successfully";
-        }
-        else
-        {
-            echo "Error: ". $cquery. "<br>". mysqli_error($con);
-        }
-       
-           
-    }
+   
     // $cquery = "SELECT Sum(Price*cart.Quantity), products.Price, cart.Quantity,products.ProductName 
     //    FROM cart INNER JOIN products ON cart.ProductID = products.ProductID GROUP by cart.ProductID";
     // $cresult = mysqli_query($con,$cquery);

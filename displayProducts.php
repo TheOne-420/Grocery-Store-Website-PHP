@@ -1,7 +1,7 @@
 <?php
  require_once "connection.php";
 
- $query = "SELECT * FROM Products ORDER BY ProductName "; 
+ $query = "SELECT * FROM Products ORDER BY ProductName DESC"; 
  $result = mysqli_query($con,$query);
 
  echo "<div class='products-container'>";
@@ -19,7 +19,7 @@
             echo "<br>";
             echo "₹".$row['Price'];
             echo "<br>";
-            echo "<button id='addToCart'>ADD TO CART</button>";
+            echo "<button id='addToCart' ><a href='addToCart.php?id=".$row['ProductID']. "'>ADD TO CART</a></button>";
             ///       CART ICON
             //     echo 
         //     "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]

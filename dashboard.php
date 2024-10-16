@@ -18,7 +18,7 @@
         </div>
         <div class="cards">
             <h4>No of registered users</h4>
-            <?php include "./countUser.php"?>
+        <?php include "./countUser.php"?>
         </div>
         <div class="cards">
         <a href="./updateProduct.php" class="links">  <h4>Update a product</h4> </a>    

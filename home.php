@@ -10,7 +10,7 @@
     {
         --primary-color: #beef00;
         --accent-color:#d0bdf4;
-        --font-color: #0049B7;
+    --font-color: #0049B7;
     }
    #product-section
 {

@@ -18,4 +18,4 @@ if ($row)
     echo "<tr><td>Product Price: ". $row['Price']. "</td></tr>";
     echo "</table>";
 }
-echo "<a href='editproduct.php?id=".$row['ProductID']."'>Edit</a> | <a href='delete.php?id=".$row['ProductID']."'>Delete</a>";
+// /echo "<a href='editproduct.php?id=".$row['ProductID']."'>Edit</a> | <a href='delete.php?id=".$row['ProductID']."'>Delete</a>";

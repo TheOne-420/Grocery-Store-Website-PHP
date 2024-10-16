@@ -32,16 +32,18 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            /* grid-template-columns: repeat(5,1.5fr);
-            grid-template-rows: 1/ 2; */
-            gap:15px;
+            /* //grid-template-columns: repeat(4,1fr);
+            
+            gap:15px; */
         }
 
         .records
         {  
             width: 300px;
             border-radius: 4px;
+            border: none;
             margin: 10px;
+            background-color: #eeeee6;
         }
         .records:hover
         { 
@@ -71,7 +73,7 @@
             background-color:  #f43f70;
             color: #f9f9fb;
             border: 2px #EE66A6 solid;
-            border-radius: 5px;
+            border-radius: 20px;
             padding: 5px;
             margin: 5px 10px;
             width: 40%;
@@ -82,29 +84,34 @@
             margin: 15px;
             background-color:  #f9f9fb;
             color: #f43f70;
-            border: 2px #0099ff58 solid;
-            border-radius: 5px;
+            border: 2px #0099ff58 solid; 
             transform: scaleX(1.09) translateY(-5px) translateX(50%);
             transition: all .6s ease;
             /* box-shadow: 5px -2px 2px #8FD14F; */
+        }
+        #addToCart a
+        { 
+            color: white;
+            text-decoration: none;
+        }
+        #addToCart:hover a
+        { 
+            color:#f43f70;
+            text-decoration: none;
         }
     </style>
 </head>
 <body> 
 <?php include "./navbar.php" ?>
 <ul id="category">
-    <li><a href="#category">Electronics</a></li>
-    <li><a href="#category">Clothing</a></li>
-    <li><a href="#category">Books</a></li>
-    <li><a href="#category">Home & Garden</a></li>
-    <li><a href="#category">Sports & Outdoors</a></li>
-    <li><a href="#category">Toys & Games</a></li>
-    <li><a href="#category">Health & Beauty</a></li>
+    <li><a href="#category">Vegetables</a></li>
+    <li><a href="#category">Fruits</a></li>
+    <li><a href="#category">Diary</a></li>
+    <li><a href="#category">Diary</a></li>
     <li><a href="#category">More Categories</a></li>
     <li><a href="#category">Sale</a></li>
     <li><a href="#category">New Arrivals</a></li>
-    <li><a href="#category">Top Sellers</a></li>
-    <li><a href="#category">Bestsellers</a>
+   
 </ul>
 <section id="hero">
   
