@@ -53,14 +53,16 @@
             position: absolute;
             margin-left: 10px;
             width: 115px;
+            
             border-radius: 15px;
             background-color: var(--font-color);
             
         }
         .dropdown-content a
         {
-            width: 100%;
-            display: block;
+            width: 70%;
+            
+            display: inline-block;
             text-decoration: none;
             color: #FFD700;
             padding: 12px 16px;

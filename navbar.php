@@ -32,8 +32,8 @@
         <!-- <button id="logout">LOGOUT</button>-->
          <a href="./home.php"  class="links">Home</a> 
         <a href="./shop.php" class="links">Shop</a>
-        <a href="./contact.php" class="links">Contact</a>
-        <a href="./about.php" class="links">About</a>
+       <a href="./about.php" class="links">About</a> 
+       <a href="./contact.php" class="links">Contact</a>
         <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="logOut.php" onclick="logout()"><i class="fa-solid fa-user"></i></a>
     </nav>
