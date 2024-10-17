@@ -22,11 +22,14 @@ while($row=mysqli_fetch_array($result))
         echo "<br>";
         echo  "Product quantity:".$row["Quantity"];
         echo "<br>"; 
+        echo "<button id='addToCart' ><a href='addToCart.php?id=".$row['ProductID']. "'>ADD TO CART</a></button>";
+
         echo "</div>";
 
         echo " <a id='img-link' href='product.php?id=".$row["ProductID"]."'>".
          "<img src='./Images/". $row["Image"].
         "'></a>";
+
     //    echo 
     //     "<a  id='cart-icon' href='cart.php?id=".$row["ProductID"]
     //     ."'>". "<i class='fa-solid fa-cart-shopping'></i>"
@@ -107,7 +110,7 @@ echo"</ul>";
 <body>
     
 
-       <i class="fa "></i>
+       
 </body>
 </html>
 
