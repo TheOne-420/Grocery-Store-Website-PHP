@@ -54,10 +54,8 @@
        
         
         </p>
-        <a href="products.php">View Our Products</a>
+        <a href="products.php">View Our Products</a><img src = "./Icons/fontawesome-free-6.6.0-desktop/svgs/solid/arrows-rotate.svg" alt="" width="20"/>
     </section>
-    <section class="shop">
-        
-    </section>
+    
 </body>
 </html>

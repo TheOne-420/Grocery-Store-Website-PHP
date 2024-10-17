@@ -12,6 +12,12 @@
         --accent-color:#d0bdf4;
     --font-color: #0049B7;
     }
+    body
+    {
+        background-color: #9A1750;
+        color: #E3E2DF;
+        text-align: center;
+    }
    #product-section
 {
 
@@ -22,9 +28,9 @@
 .products-container
 {
     display: grid;
-    grid-template-columns: repeat(5,1.5fr);
-    grid-template-rows: 1/ 2;
-    gap:15px;
+    grid-template-columns: repeat(5,1fr);
+    
+    
 }
 
 .records
@@ -32,7 +38,7 @@
     
     border-radius: 4px;
     margin: 10px;
-    
+    outline: #beef00 2px solid;
 
 }
 .records:hover
@@ -40,7 +46,7 @@
     
     background-color: var(--primary-color);
     color: var(--font-color);
-    animation: borderAnimation 1.5s infinite linear;
+    /* animation: borderAnimation 1.5s 1s infinite linear; */
 
 }
 .records a
@@ -68,9 +74,9 @@
             color: #f9f9fb;
             border: 2px #EE66A6 solid;
             border-radius: 5px;
-            padding: 5px;
-            margin: 5px 10px;
-            width: 50%;
+            margin: 0% auto;
+            width: 50% ;
+            
             /* box-shadow: -5px 3px 2px #8FD14F; */
         }
         #addToCart:hover
@@ -81,7 +87,7 @@
             border: 2px #0099ff58 solid;
             border-radius: 5px;
             transform: scaleX(1.09) translate(30%,-5px);
-            transition: all .6s ease;
+            transition: all .6s ease 1s;
             /* box-shadow: 5px -2px 2px #8FD14F; */
         }
  </style>
@@ -90,10 +96,7 @@
 </head>
 <body> 
     <?php include "./navbar.php" ?>
-    <section id="main">
-        <h1>Welcome to our website!</h1>
-        <p>This is the home page.</p>
-    </section>
+    
     <section id="product-section">
         <h2>Product List</h2>
        
@@ -103,8 +106,8 @@
          
         ?>
     </section>
-    
+    <script>
+
+    </script>
 </body>
 </html>
-
-c

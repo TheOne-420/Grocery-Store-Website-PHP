@@ -49,7 +49,7 @@
             <?php 
                 if ($row) {
                     echo "<label for='quantity'>Quantity:</label>";
-                    echo "<input type='number' id='quantity' name='quantity' min='1' max='100' required>";
+                    echo "<input type='number' id='quantity' name='quantity' min='1' max='100'  value='1' required>";
                     echo "<br>";
                     echo "<label for='price'>Price:</label>";
                     echo "<input type='text' id='price' name='price' value='". $row['Price']."' readonly>";
@@ -93,13 +93,25 @@ if (isset($_POST['submit']))
     $quantity = $_POST['quantity'];
     // $price = $_POST['price'];
     $product_id = $_GET['id'];
+
+    // Check if product already exists in the cart
+    $doesExistQuery = "SELECT * FROM cart WHERE ProductID=$id";
+    $doesExistResult = mysqli_query($con, $doesExistQuery);
+    $doesExistRow = mysqli_fetch_array($doesExistResult);
     
-    $query = "
-    INSERT INTO cart (ProductID, Quantity) VALUES ($product_id, $quantity)
-    
-    
-    ";
+    if ($doesExistRow)
+    {
+        // Update the quantity of the existing product
+        $updateQuantityQuery = "UPDATE cart SET Quantity = Quantity + $quantity WHERE ProductID=$id";
+        mysqli_query($con, $updateQuantityQuery);
+    }
+    else
+    {
+        $query = "
+                INSERT INTO cart (ProductID, Quantity) VALUES ($product_id, $quantity) ";
     mysqli_query($con, $query);
+    }
+    
     
     // Redirect after adding to cart
     header("Location: cart.php");

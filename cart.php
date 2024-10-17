@@ -28,44 +28,8 @@ if(mysqli_num_rows($result) == 0)
     
 
 }
-
- echo "<h2>Cart items</h2>";
- $totalAmount = 0;
-while($row = mysqli_fetch_array($result))
- {
-    
-    $pid = $row["ProductID"];
-    $pname = $row["ProductName"];
-    $price = $row["TotalPrice"];
-    $unit_price = $row["Price"];
-    $quantity = $row["Quantity"];
-    
-    
-    
-    //Get to total amount
-    $totalAmount += $price;
-    
-    
-   
-    echo "<table>";
-    
-        echo "<tr><td>Product Name: ". $pname. "</td></tr>";
-        echo "<tr><td>"."<img src='./Images/". $row["Image"]."'</td></tr><br>"; 
-        echo "<tr><td>Quantity: ". $quantity. "</td></tr>";
-        echo "<tr><td>Unit Price: ". $unit_price. "</td></tr>";
-        echo "<tr><td>Total Price: ". $price. "</td></tr>";
-        
-
-        
-    echo "</table>";
-    
-    echo "<form method='post' action='removeFromCart.php?id=$pid'>";
-    echo "<input type='hidden' name='productID' value='$pid'>";
-    echo "<input type='submit' value='REMOVE'>";
-    echo "</form>";
-}
-echo "<p>Amt: ". $totalAmount. "</p>";
 ?>
+   
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,15 +43,177 @@ echo "<p>Amt: ". $totalAmount. "</p>";
             --light-color: #f9f9fb;
             --accent-color: #f43f70;
         }
-        img
+        /* Animations */
+        
+
+        /* Styling */
+        
+        
+        .cart
         {
-            width: 100px;
-            height: 100px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            border-radius: 25px;
+            margin: 10px;
+            
+
         }
+     
+        .left-container
+        {
+            border:#f43f70 solid 2px;
+            border-radius: inherit;
+        }
+        .right-container
+        {
+            padding-right: 10px;
+        }
+        .productImages
+        {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: inherit;
+        }
+        form
+        {
+            margin: 0px;
+        }
+        #productID
+        {
+            background-color: #0000ff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 5px;
+        }
+        #productID:hover
+        {
+            background-color: whitesmoke;
+            color: #0000ff;
+            cursor: pointer;
+            transform: scaleX(1.09) translateY(-5px);
+            transition: all 0.6 ease;
+        }
+        #order
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #0099ff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 5px;
+        }
+        .main-wrapper
+        {
+            width: 200px;
+        }
+        #order #header ,#total-wrapper, .redirects, h5
+        {
+            display: inline-flex;
+            align-items: center;
+        }
+        h5
+        {
+            margin: 0;
+        }
+        .redirects
+        {
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .icons
+        {
+            width: 20px;
+            height: 20px;
+            padding: 10px;
+        }
+
     </style>
 </head>
 <body>
-    
+    <div class="cart-wrapper">
+        <?php 
+            $totalAmount = 0;
+            
+            
+           while($row = mysqli_fetch_array($result))
+            {
+               
+               $pid = $row["ProductID"];
+               $pname = $row["ProductName"];
+               $price = $row["TotalPrice"];
+               $unit_price = $row["Price"];
+               $quantity = $row["Quantity"];
+               
+               
+               
+               //Get to total amount
+               $totalAmount += $price;
+               echo "<div class='cart'>";
+                echo "<div class='left-container'>";
+                    echo "<img class='productImages' src='./Images/". $row["Image"]. "'/>";
+                echo "</div>";
+                echo "<div class='right-container'>";
+                     echo "<div class='text-content'>";
+                           echo " <p>Quantity: ". $quantity. "</p>";
+                           echo " <p>Unit Price: ". $unit_price. "</p>";
+                           echo " <p>Total Price: ". $price. "</p>";
+                           echo "<form method='post' action='removeFromCart.php?id=$pid'>";
+                            echo "<input type='hidden'  value='$pid'>";
+                            echo "<input type='submit' value='REMOVE' id='productID'>";
+                            echo "</form>";
+                    echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                
+               
+               
+               
+               
+           }
+           
+           
+           
+        ?>
+    </div>
+    <section id="order"><div id="header">
+                <img src="./Icons/svgs/solid/bag-shopping.svg" class="icons">
+                <h1 id="order-heading">Order Summary</h1>
+            </div>
+        <div class="main-wrapper">
+            
+            
+            <p id="total-wrapper" >
+                <img src="./Icons/svgs/solid/receipt.svg" class="icons">
+            <span>Total Amount: <?php echo $totalAmount;?></span> 
+            </p> 
+            <h5>
+            <img src="./Icons/svgs/solid/link.svg" class="icons">
+
+                Redirects
+            </h5>
+            <br>
+            <a href="checkout.php" class="redirects"> 
+            
+                <img src="./Icons/svgs/solid/cash-register.svg"  class="icons">  
+                Checkout
+            </a>
+            <a href="shop.php" class="redirects">
+                <img src="./Icons/svgs/solid/bag-shopping.svg"  class="icons"> 
+                Continue Shopping
+            </a>
+            <a href="home.php" class="redirects">
+                <img src="./Icons/svgs/solid/house.svg"  class="icons">
+                Back to Home 
+            </a>
+        </div>
+    </section>
     <!-- <h1>
         ADD TO CART
     </h1>
