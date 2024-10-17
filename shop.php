@@ -4,6 +4,7 @@
     
     <title>Shop</title>
     <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/shop.cssshop.css">
     <script defer src="./js/activePage.js"></script>
     <style>
       :root
@@ -74,7 +75,7 @@
         {
             display:block;
         }
-        li:hover #category
+        .dropdown li:hover #category
         {
             display: block;
             position: absolute;
