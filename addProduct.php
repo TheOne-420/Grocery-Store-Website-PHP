@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Update Product</title>
+    <title>Add Product</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,7 +38,7 @@
             color: #555;
         }
 
-        input[type="number"], input[type="text"] {
+        input[type="text"], input[type="number"], input[type="file"] {
             width: 90%;
             padding: 10px;
             margin-bottom: 10px;
@@ -48,7 +48,7 @@
         }
 
         input[type="submit"] {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -58,7 +58,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
 
         a {
@@ -79,12 +79,9 @@
 </head>
 <body>
     <div class="main">
-        <h1>Update Product</h1>
-        <form method="post" id="updateForm">
-            <label for="pid">ID of product you want to change:</label>
-            <input type="number" name="pid" id="pid" required>
-            <br>
-            <label for="pname">Product name:</label>
+        <h1>Add Product</h1>
+        <form method="post" id="addProductForm" enctype="multipart/form-data">
+            <label for="pname">Product Name:</label>
             <input type="text" name="pname" id="pname" required>
             <br>
             <label for="price">Price:</label>
@@ -93,43 +90,44 @@
             <label for="quantity">Quantity:</label>
             <input type="number" name="quantity" id="quantity" required>
             <br>
-            <input type="submit" value="Update" id="updateBtn" name="updateBtn">
+            <label for="image">Image (optional):</label>
+            <input type="text" name="image" id="image">
+            <br>
+            <input type="submit" value="Add Product" id="addBtn" name="addBtn">
             <br>
             <span id="message" class="error-message"></span>
             <br>
             <a href="./dashboard.php">Back to dashboard</a>
         </form>
-        <br>
     </div>
-</body>
-</html>
 
-<?php
-if (isset($_POST['updateBtn'])) 
-{
-    // Connect to the database
-    include "./connection.php";
-    $id = $_POST['pid'];
-    
-    // First check if product exists
-    $query = "SELECT * FROM Products WHERE ProductID = $id";
-    $result = $con->query($query);
+    <?php
+    if (isset($_POST['addBtn'])) 
+    {
+        // Connect to the database
+        include "./connection.php";
 
-    if ($result->num_rows > 0) {
-        // Get the new product values from the form
+        // Get product details
         $name = $_POST['pname'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
+        $image = $_POST['image'];;
 
-        // Update the product in the database
-        $updateQuery = "UPDATE Products SET ProductName='$name', Price=$price, Quantity=$quantity WHERE ProductID = $id";
-        if ($con->query($updateQuery) === TRUE) {
-            echo "<div class='main'><br>Product with ID $id has been updated.</div>";
-        } else {
-            echo "<div class='main'><br>Error updating product: " . $con->error . "</div>";
+        
+
+        // Prepare the SQL statement
+        $query = "INSERT INTO Products (ProductName, Price, Quantity, Image) VALUES ('$name', $price, $quantity, '$image')";
+
+        // Execute the query
+        if ($con->query($query) === TRUE) 
+        {
+            echo "<div class='main'><br>Product '$name' has been added successfully.</div>";
+        } 
+        else 
+        {
+            echo "<div class='main'><br>Error adding product: " . $con->error . "</div>";
         }
-    } else {
-        echo "<div class='main'><br>No product found with ID $id.</div>";
     }
-}
-?>
+    ?>
+</body>
+</html>

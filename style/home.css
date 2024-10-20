@@ -1,0 +1,80 @@
+:root
+    {
+        --primary-color: #beef00;
+        --accent-color:#d0bdf4;
+    --font-color: #ffffff;
+    }
+    body
+    {
+        background-color: #9A1750;
+        color: #E3E2DF;
+        text-align: center;
+    }
+   #product-section
+{
+
+    
+    color: var(--font-color);
+    
+}
+
+
+.products-container 
+{
+    position: relative;
+    width: 70%;
+    height: 600px; /* Set a fixed height for the slider */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.slider {
+    display: flex; /* Use flexbox for horizontal layout */
+    transition: transform 0.5s ease; /* Smooth transition effect */
+}
+
+.records 
+{
+    flex: 0 0 50%; /* Each record takes full width of the container */
+    position: relative; /* Relative positioning for each record */
+    border-radius: 4px;
+    margin: 0; /* Remove margin to prevent overflow */
+    outline: #beef00 2px solid;
+}
+
+.records:hover 
+{
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+.records a {
+    text-decoration: underline;
+    color: var(--font-color);
+}
+
+
+
+.imgs {
+    
+    object-fit: contain;
+    border-radius: 8px;
+}
+#addToCart
+{
+        background-color:  #f43f70;
+        color: #f9f9fb;
+        border: 2px #EE66A6 solid;
+        border-radius: 5px;
+        margin: 0% auto;
+        width: 50% ;
+            
+}
+#addToCart:hover
+{  
+    margin: 15px;
+    background-color:  #f9f9fb;
+    color: #f43f70;
+    border: 2px #0099ff58 solid;
+    border-radius: 5px;
+    transform: scaleX(1.09) translate(30%,-5px);
+    transition: all .6s ease 1s;
+}

@@ -5,15 +5,17 @@ body
 }
 header
 {
-    position: sticky;
-    top: 0;
-    padding-top: 5px;
+    background-color: #333;
+    color: #beef00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    position: fixed;
     width: 100%;
+    top: 0;
     
-    display: flex; 
-    justify-content: space-between; 
-    background-color: rgb(18, 6, 6);
-    color: greenyellow ;
+    z-index: 10;
     
 }
 header span 
@@ -53,7 +55,9 @@ header span
 }
 #search
 {
+    position: relative;
     margin-left: 100px;
+    
     width: 350px;
     padding: 5px;
     border-radius: 5px;

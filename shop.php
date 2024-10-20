@@ -47,8 +47,9 @@
         {
             
             display: none;
+            position: absolute;
         }
-        .dropdown-content 
+        .dropdown-content
         {
             display: none;
             position: absolute;
@@ -71,10 +72,12 @@
             background-color: transparent;
             font-size: 17px;
         }
-        #dropdown:hover .dropdown-content, #down-arrow
+       
+        #dropdown:hover .dropdown-content
         {
             display:block;
         }
+        
         .dropdown li:hover #category
         {
             display: block;
@@ -173,20 +176,22 @@
 </head>
 <body> 
 <?php include "./navbar.php" ?>
-<div id="dropdown">
+    <div id="dropdown">
     
-         <button class="dropbtn" >Categories <div id="arrow-contianer">
-            <i id="right-arrow" class="fa-solid fa-caret-right"></i>
-            <!-- <i id="down-arrow" class="fa-solid fa-caret-down" ></i> -->
-         </div>
-        </button>
+         <button class="dropbtn">Categories</button> 
+         <!-- <div id="arrow-contianer"> -->
+            <!-- <i id="right-arrow" class="fa-solid fa-caret-right"></i></div>
+            <i id="down-arrow" class="fa-solid fa-caret-down" ></i> -->
+         
+        
          
     
    
     <div class="dropdown-content" id="lists">
-        <a href="#">Vegetables</a>
-        <a href="#">Fruits</a>
-        <a href="#">Diary</a>
+        <a href="./category/Vegetables.php">Vegetables</a>
+        <a href="./category/Fruits.php">Fruits</a>
+        <a href="./category/Dairy.php">Diary</a>
+        <a href="./category/Misc.php">Diary</a>
     </div> 
 </div>
 
@@ -202,8 +207,8 @@
         {
             let rightArrow =document.getElementById("right-arrow");
             let downArrow =document.getElementById("down-arrow");
-            rightArrow.style.display = "none";
-            downArrow.style.display = "block";
+            rightArrow.style.visibilty = "hidden";
+            downArrow.style.display = "inline-block";
         }
         function toggleRight() 
         {
@@ -211,6 +216,7 @@
             let downArrow =document.getElementById("down-arrow");
             
             downArrow.style.display = "none";
+            rrightArrow.style.visibilty = "visible";
         }
         
             

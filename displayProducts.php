@@ -5,6 +5,8 @@
  $result = mysqli_query($con,$query);
 
  echo "<div class='products-container'>";
+ echo "<div class='slider'>";  
+
  while($row = mysqli_fetch_array($result))
  {
     
@@ -32,4 +34,5 @@
         echo "</div>";
         
  }
+ echo "</div>";
  echo "</div>";
