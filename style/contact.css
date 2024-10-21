@@ -1,0 +1,96 @@
+:root
+{
+    --primary-color : #03045e;
+    --secondary-color : #457b9d;
+    --font-color : white;
+}
+body 
+{
+    
+    background-color:var(--primary-color);
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+}
+
+.contact-section 
+{
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+h1 
+{
+    font-size: 36px;
+    margin-bottom: 10px;
+    
+}
+
+p 
+{
+    margin: 10px 0;
+   
+    font-size: 16px;
+}
+
+.contact-info 
+{
+    margin: 20px 0;
+}
+
+.contact-info i 
+{
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+.social-icons 
+{
+    margin-top: 30px;
+}
+
+.social-icons a 
+{
+    margin: 0 10px;
+    color: var(--font-color);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+
+.social-icons #fb:hover 
+{
+    color: blue;
+}
+.social-icons #insta:hover 
+{
+    color: hotpink;
+}
+.social-icons #yt:hover 
+{
+    color: red;
+}
+.social-icons #twitter:hover 
+{
+    color: cyan;
+}
+.social-icons #linkedin:hover 
+{
+    color: darkblue;
+}
+
+footer 
+{
+    margin-top: 30px;
+    font-size: 14px;
+    
+}
+
+footer i {
+    color: #4caf50;
+}

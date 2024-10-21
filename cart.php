@@ -39,14 +39,12 @@ if(mysqli_num_rows($result) == 0)
     <style>
         :root
         {
-            --primary-color: #FFF ;
-            --dark-color: #f9f9fb;
-            --accent-color: #000;
+            --primary-color: #931155ff;
+            --dark-color: #2E3532;
+            --accent-color:#FBF5F3;
+      
         }
-        /* Animations */
-        
-
-        /* Styling */
+       
         
         
         .cart
@@ -74,9 +72,8 @@ if(mysqli_num_rows($result) == 0)
         }
         .productImages
         {
-            width: 100%;
+            width: 140px;
             height: 140px;
-            object-fit: contain;
             border-radius: inherit;
         }
         form
@@ -100,10 +97,11 @@ if(mysqli_num_rows($result) == 0)
             transition: all 0.6 ease;
         }
         #order
-        {
+        {   
+           
             display: flex;
             flex-direction: column;
-            background-color: var(--primary-color);
+            background-color: var(--dark-color);
             color: var(--accent-color);
             border: none;
             border-radius: 25px;
@@ -138,6 +136,7 @@ if(mysqli_num_rows($result) == 0)
         #checkout
         {
             position:sticky;
+            top: auto;
             bottom:0;
             width:100%;
             height:30px;
@@ -162,7 +161,7 @@ if(mysqli_num_rows($result) == 0)
     </style>
 </head>
 <body>
-    <div class="cart-wrapper">
+    
         <?php 
        
         $totalAmount = 0; 
@@ -206,7 +205,7 @@ if(mysqli_num_rows($result) == 0)
            
            
         ?>
-    </div>
+   
     <section id="order"><div id="header">
                 <img src="./Icons/svgs/solid/bag-shopping.svg" class="icons">
                 <h1 id="order-heading">Order Summary</h1>
@@ -231,15 +230,15 @@ if(mysqli_num_rows($result) == 0)
             </a>
             <a href="home.php" class="redirects">
                 <img src="./Icons/svgs/solid/house.svg"  class="icons">
-                Back to Home 
+                  Back to Home 
             </a>
             <p id="delivery-wrapper" >
                 <img src="./Icons/svgs/solid/truck-fast.svg" class="icons">
-            <span id="delivery-txt">Delivery Fee: ₹<?php echo $totalAmount * 0.05;?></span> 
+                <span id="delivery-txt">Delivery Fee: ₹<?php echo $totalAmount * 0.05; echo" (0.05% of total amount) " ?> </span>  
             </p> 
             <p id="total-wrapper" >
                 <img src="./Icons/svgs/solid/receipt.svg" class="icons">
-            <span id="total-txt">Total Amount: <?php echo $totalAmount;?></span> 
+            <span id="total-txt">Total Amount: <?php echo $totalAmount;?></span>
             </p> 
         </div>
         

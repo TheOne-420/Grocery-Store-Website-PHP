@@ -1,0 +1,101 @@
+body 
+       {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        }
+
+        .product-container
+        {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping of items to the next line */
+            justify-content: space-between; /* Distributes space between items */
+            gap: 20px; /* Adds space between product cards */
+        }
+
+        .product 
+        {
+            background-color: white;
+            border: 1px solid #ddd; /* Soft border for each product */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px;
+            width: calc(30% - 20px); /* Ensures 3 products per row with margins */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+        }
+
+        .product:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
+
+        .product img 
+        {
+            width: 100%;
+            height: calc(50% + 40px) ;
+            border-radius: 8px; /* Smooth edges on images */
+            margin-bottom: 15px; /* Space between image and content */
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        strong {
+            color: #000; /* Emphasized price styling */
+            font-weight: bold;
+        }
+
+        #addToCart 
+        {
+            background-color:  #f43f70;  
+            padding: 10px 20px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box; 
+          
+        }
+
+        #addToCart:hover 
+        {
+            background-color:  blue;
+            transition:all 0.5s ease;
+            
+        }
+        #addToCart a
+        { 
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) 
+        {
+            .product-container 
+            {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+            }  
+            .product 
+            {
+                width: 90%; /* Full width for smaller screens */
+            }
+            
+        }
+
+        @media (max-width: 480px) 
+        {
+            .product 
+            {
+                width: 100%; /* Full width for mobile */
+            }
+        }

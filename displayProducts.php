@@ -5,14 +5,14 @@
  $result = mysqli_query($con,$query);
 
  echo "<div class='products-container'>";
- echo "<div class='slider'>";  
+  
 
  while($row = mysqli_fetch_array($result))
  {
     
         // Display the records in a formatted manner.
         echo "<div class='records'>";  
-            echo "<a href='product.php?id=".$row['ProductID']."'><span>".$row['ProductName']."</span></a>";   
+            // echo "<a href='product.php?id=".$row['ProductID']."' class='product-link'>".$row['ProductName']."</a>";   
             echo "<div class='img-container'>";
             echo "<img src='./Images/".$row['Image']."'  class='imgs'>";
             echo "</div>";
@@ -34,5 +34,5 @@
         echo "</div>";
         
  }
- echo "</div>";
+
  echo "</div>";

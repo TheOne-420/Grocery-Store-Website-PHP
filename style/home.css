@@ -10,7 +10,62 @@
         color: #E3E2DF;
         text-align: center;
     }
-   #product-section
+    .hero  
+    {    
+        background-size: cover;     
+        background-position: center;     
+            display: flex;    
+         justify-content: center;     
+         align-items: center;    
+         text-align: center;     
+         padding-top: 100px;     
+         color: whitesmoke;     
+         position: relative; 
+        } 
+    .shop-button  
+    {     padding: 10px 25px;     
+        background-color: #beef00;     
+        color: #333;     
+        border: none;     
+        border-radius: 20px;     
+        font-size: 18px;    
+        cursor: pointer; 
+    }  
+    .shop-button:hover  
+    {     
+        background-color:  #333;     
+        color: #beef00;     
+        transition: all 0.5 ease; 
+    } 
+    
+    .hero h1  
+    {     
+        font-size: 48px;     
+        margin-bottom: 20px; 
+    }     
+    .hero p  
+    {     
+        font-size: 20px;     
+        margin-bottom: 30px; 
+    }
+       
+    footer 
+    {
+        width: 100vw;
+        position: fixed;
+        bottom:0;
+        background-color: #333;
+        color: #fff;
+        padding-top: 10px;
+        text-align: center;
+        z-index:100;
+    }
+    
+    footer p 
+    {
+        margin: 10px 0;
+    }
+#product-section
 {
 
     
@@ -27,10 +82,7 @@
     overflow: hidden; /* Hide overflowing content */
 }
 
-.slider {
-    display: flex; /* Use flexbox for horizontal layout */
-    transition: transform 0.5s ease; /* Smooth transition effect */
-}
+
 
 .records 
 {
